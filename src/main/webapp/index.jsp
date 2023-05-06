@@ -9,7 +9,6 @@
 <html>
 <head>
     <title>Title</title>
-
 </head>
 <body>
 <h1> Log in</h1><br>
@@ -20,7 +19,7 @@
     String message = (String) session.getAttribute("message");
 %>
 <% if (message != null) {%>
-<span style="color: yellow"><%="*" + message %></span><br>
+<span style="color: blue"><%="*" + message %></span><br>
 <%
         session.removeAttribute("message");
     }%>

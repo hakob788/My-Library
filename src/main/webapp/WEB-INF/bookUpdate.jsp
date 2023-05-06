@@ -25,8 +25,7 @@
     Author:
     <select name="author">
         <% for (Author author : authors) { %>
-        <option value="<%=author.getId()%>"><%= author.getName() %>
-        </option>
+        <option value="<%=author.getId()%>"><%= author.getName() %></option>
         <% }%>
     </select>
     <input type="submit" value="Update">

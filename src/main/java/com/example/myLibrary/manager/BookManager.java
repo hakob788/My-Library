@@ -33,7 +33,7 @@ public class BookManager {
         try (Statement statement = CONNECTION.createStatement()) {
             ResultSet resultSet = statement.executeQuery("Select * from book where id = " + id);
             if (resultSet.next()) {
-                return getEmployeeFromResultSet(resultSet);
+                return getBookFromResultSet(resultSet);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -47,7 +47,7 @@ public class BookManager {
             Statement statement = CONNECTION.createStatement();
             ResultSet resultSet = statement.executeQuery("Select * from book");
             while (resultSet.next()) {
-                books.add(getEmployeeFromResultSet(resultSet));
+                books.add(getBookFromResultSet(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,7 +55,21 @@ public class BookManager {
         return books;
     }
 
-    private Book getEmployeeFromResultSet(ResultSet resultSet) throws SQLException {
+    public List<Book> getUserBooks(int userId) {
+        List<Book> books = new ArrayList<>();
+        try {
+            Statement statement = CONNECTION.createStatement();
+            ResultSet resultSet = statement.executeQuery("Select * from book WHERE user_id = " + userId);
+            while (resultSet.next()) {
+                books.add(getBookFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return books;
+    }
+
+    private Book getBookFromResultSet(ResultSet resultSet) throws SQLException {
         Book book = new Book();
         book.setId(resultSet.getInt("id"));
         book.setTitle(resultSet.getString("title"));

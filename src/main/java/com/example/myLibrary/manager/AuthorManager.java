@@ -32,7 +32,7 @@ public class AuthorManager {
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery("Select * from author where id = " + id);
             if (resultSet.next()) {
-                return getCompanyFromResultSet(resultSet);
+                return getAuthorFromResultSet(resultSet);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,7 +46,7 @@ public class AuthorManager {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("Select * from author");
             while (resultSet.next()) {
-                authorList.add(getCompanyFromResultSet(resultSet));
+                authorList.add(getAuthorFromResultSet(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -54,7 +54,7 @@ public class AuthorManager {
         return authorList;
     }
 
-    private Author getCompanyFromResultSet(ResultSet resultSet) throws SQLException {
+    private Author getAuthorFromResultSet(ResultSet resultSet) throws SQLException {
         Author author = new Author();
         author.setId(resultSet.getInt("id"));
         author.setName(resultSet.getString("name"));

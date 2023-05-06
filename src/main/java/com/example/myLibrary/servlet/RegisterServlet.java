@@ -2,6 +2,7 @@ package com.example.myLibrary.servlet;
 
 import com.example.myLibrary.manager.UserManager;
 import com.example.myLibrary.model.User;
+import com.example.myLibrary.model.UserType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,11 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
     private static final UserManager USER_MANAGER = new UserManager();
-
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
@@ -24,6 +23,7 @@ public class RegisterServlet extends HttpServlet {
                     .surname(req.getParameter("surname"))
                     .email(email)
                     .password(req.getParameter("password"))
+                    .userType(UserType.valueOf(req.getParameter("userType")))
                     .build());
         }
         resp.sendRedirect("/");
