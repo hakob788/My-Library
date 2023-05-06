@@ -5,11 +5,10 @@
   Time: 16:50
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Register Page</title>
+    <title>Register</title>
 </head>
 <body>
 <%
@@ -22,7 +21,7 @@ Register:
     Name: <input name="name" type="text"><br/>
     Surname: <input name="surname" type="text"><br/>
     Email: <input name="email" type="text"><br/>
-    Password: <input name="password" type="password"><br/>
+    Password<input name="password" type="password"><br/>
     Position:
     <select name="userType">
         <option value="ADMIN">ADMIN</option>
@@ -31,5 +30,6 @@ Register:
     <input type="submit" value="register">
 </form>
 <a href="/">Back</a>
+
 </body>
 </html>
