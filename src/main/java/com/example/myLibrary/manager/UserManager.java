@@ -1,6 +1,7 @@
 package com.example.myLibrary.manager;
 
 import com.example.myLibrary.db.DBConnectionProvider;
+import com.example.myLibrary.model.Book;
 import com.example.myLibrary.model.User;
 import com.example.myLibrary.model.UserType;
 
@@ -11,7 +12,6 @@ public class UserManager {
 
     public void save(User user) {
         String sql = "INSERT INTO user(name,surname,email,password,user_type) VALUES(?,?,?,?,?)";
-
         try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, user.getName());
             ps.setString(2, user.getSurname());
@@ -27,7 +27,7 @@ public class UserManager {
             e.printStackTrace();
         }
     }
-    public User getId(int id) {
+    public User getById(int id) {
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery("Select * from user where id = " + id);
             if (resultSet.next()) {
@@ -39,9 +39,8 @@ public class UserManager {
         return null;
     }
 
-    public User getByEmail(String email) {
+    public User getEmail(String email) {
         String sql = "Select * from user where email = ?";
-
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, email);
             ResultSet resultSet = preparedStatement.executeQuery();

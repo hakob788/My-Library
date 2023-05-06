@@ -13,6 +13,7 @@ public class AuthorManager {
 
     public void save(Author author) {
         String sql = "INSERT INTO author(name,surname,email,age) VALUES(?,?,?,?)";
+
         try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, author.getName());
             ps.setString(2, author.getSurname());
@@ -32,7 +33,7 @@ public class AuthorManager {
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery("Select * from author where id = " + id);
             if (resultSet.next()) {
-                return getAuthorFromResultSet(resultSet);
+                return getCompanyFromResultSet(resultSet);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,7 +47,7 @@ public class AuthorManager {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("Select * from author");
             while (resultSet.next()) {
-                authorList.add(getAuthorFromResultSet(resultSet));
+                authorList.add(getCompanyFromResultSet(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -54,7 +55,8 @@ public class AuthorManager {
         return authorList;
     }
 
-    private Author getAuthorFromResultSet(ResultSet resultSet) throws SQLException {
+
+    private Author getCompanyFromResultSet(ResultSet resultSet) throws SQLException {
         Author author = new Author();
         author.setId(resultSet.getInt("id"));
         author.setName(resultSet.getString("name"));
@@ -85,5 +87,6 @@ public class AuthorManager {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
 }

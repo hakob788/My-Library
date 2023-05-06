@@ -19,8 +19,8 @@ import java.util.List;
 
 @WebServlet("/createBook")
 @MultipartConfig(
-        maxFileSize = 1024 * 1024 * 5, //5mb
-        maxRequestSize = 1024 * 2024 * 15, //10mb
+        maxFileSize = 1024 * 1024 * 5,
+        maxRequestSize = 1024 * 2024 * 15,
         fileSizeThreshold = 1024 * 1024
 )
 

@@ -1,6 +1,5 @@
 <%@ page import="com.example.myLibrary.model.User" %>
-<%@ page import="com.example.myLibrary.model.UserType" %>
-<%--
+<%@ page import="com.example.myLibrary.model.UserType" %><%--
   Created by IntelliJ IDEA.
   User: Hakob
   Date: 27.04.2023
@@ -22,7 +21,5 @@ Welcome <%=user.getName()%> <%=user.getSurname()%><br>
 <%};%>
 <a href="/createBook">Create Book</a>|
 <a href="/logout">logout</a> <br>
-
-
 </body>
 </html>

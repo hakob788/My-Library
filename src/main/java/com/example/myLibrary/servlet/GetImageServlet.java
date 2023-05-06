@@ -14,24 +14,26 @@ import java.io.OutputStream;
 
 @WebServlet("/getImage")
 public class GetImageServlet extends HttpServlet {
-
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String picName = req.getParameter("picName");
         File imageFile = new File(SharedConstants.UPLOAD_FOLDER + picName);
         if (imageFile.exists()) {
             try (FileInputStream inStream = new FileInputStream(imageFile)) {
+
                 resp.setContentType("image/jpeg");
                 resp.setContentLength((int) imageFile.length());
                 OutputStream outStream = resp.getOutputStream();
                 byte[] buffer = new byte[4096];
                 int bytesRead = -1;
+
                 while ((bytesRead = inStream.read(buffer)) != -1) {
                     outStream.write(buffer, 0, bytesRead);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
     }
 }

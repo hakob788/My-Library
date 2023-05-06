@@ -10,15 +10,18 @@ import java.util.List;
 public class BookManager {
 
     private static final Connection CONNECTION = DBConnectionProvider.getInstance().getConnection();
-    private static final AuthorManager AuthorManager = new AuthorManager();
+    private static final AuthorManager AUTHOR_MANAGER = new AuthorManager();
+    private static final UserManager USER_MANAGER = new UserManager();
 
     public void save(Book book) {
-        String sql = "INSERT INTO book(title,description,price,author_id) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO book(title,description,price,author_id,user_id,pic_name) VALUES(?,?,?,?,?,?)";
         try (PreparedStatement statement = CONNECTION.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, book.getTitle());
             statement.setString(2, book.getDescription());
             statement.setInt(3, book.getPrice());
             statement.setInt(4, book.getAuthor().getId());
+            statement.setInt(5, book.getUser().getId());
+            statement.setString(6, book.getPicName());
             statement.executeUpdate();
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
@@ -69,6 +72,7 @@ public class BookManager {
         return books;
     }
 
+
     private Book getBookFromResultSet(ResultSet resultSet) throws SQLException {
         Book book = new Book();
         book.setId(resultSet.getInt("id"));
@@ -76,20 +80,26 @@ public class BookManager {
         book.setDescription(resultSet.getString("description"));
         book.setPrice(resultSet.getInt("price"));
         int authorId = resultSet.getInt("author_id");
-        book.setAuthor(AuthorManager.getById(authorId));
+        book.setAuthor(AUTHOR_MANAGER.getById(authorId));
+        int userId = resultSet.getInt("user_id");
+        book.setUser(USER_MANAGER.getById(userId));
+        book.setPicName(resultSet.getString("pic_name"));
         return book;
     }
 
     public void update(Book book) {
-        String sql = "UPDATE book SET title = ?, description = ?, price = ?, author_id = ? WHERE id =" + book.getId();
+        String sql = "UPDATE book SET title = ?, description = ?, price = ?, author_id = ?, user_id = ?, pic_name = ?  WHERE id =" + book.getId();
         try (PreparedStatement statement = CONNECTION.prepareStatement(sql)) {
             statement.setString(1, book.getTitle());
             statement.setString(2, book.getDescription());
             statement.setInt(3, book.getPrice());
             statement.setInt(4, book.getAuthor().getId());
+            statement.setInt(5, book.getUser().getId());
+            statement.setString(6, book.getPicName());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+
         }
     }
 

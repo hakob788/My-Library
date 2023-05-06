@@ -33,6 +33,6 @@ public class BooksServlet extends HttpServlet {
             books = BOOK_MANAGER.getUserBooks(user.getId());
         }
         req.setAttribute("Books", books);
-        req.getRequestDispatcher("WEB-INF/book.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/books.jsp").forward(req, resp);
     }
 }

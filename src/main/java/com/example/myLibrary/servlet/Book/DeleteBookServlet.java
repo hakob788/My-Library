@@ -1,5 +1,6 @@
 package com.example.myLibrary.servlet.Book;
 
+
 import com.example.myLibrary.constants.SharedConstants;
 import com.example.myLibrary.manager.BookManager;
 import com.example.myLibrary.model.Book;
@@ -20,8 +21,8 @@ public class DeleteBookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         Book book = BOOK_MANAGER.getById(id);
-        if (book != null) {
-            if (book.getPicName() != null) {
+        if (book != null){
+            if (book.getPicName() != null){
                 File file = new File(SharedConstants.UPLOAD_FOLDER + book.getPicName());
                 if (file.exists()) {
                     file.delete();
