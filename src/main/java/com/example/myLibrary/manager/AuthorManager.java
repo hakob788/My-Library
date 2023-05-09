@@ -87,6 +87,5 @@ public class AuthorManager {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
