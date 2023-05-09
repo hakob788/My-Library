@@ -19,4 +19,5 @@ public class SessionAttributeListener implements HttpSessionAttributeListener {
                     " email logged in at " + new Date() + " sessionId=" + id);
         }
     }
+
 }

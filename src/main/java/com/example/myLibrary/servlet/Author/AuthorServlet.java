@@ -21,4 +21,5 @@ public class AuthorServlet extends HttpServlet {
         req.setAttribute("allAuthors", all);
         req.getRequestDispatcher("WEB-INF/author.jsp").forward(req, resp);
     }
+
 }

@@ -1,5 +1,4 @@
 <%@ page import="com.example.myLibrary.model.Author" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
   User: Hakob

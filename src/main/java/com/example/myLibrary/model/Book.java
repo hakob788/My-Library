@@ -16,5 +16,4 @@ public class Book {
     private Author author;
     private User user;
     private String picName;
-
 }

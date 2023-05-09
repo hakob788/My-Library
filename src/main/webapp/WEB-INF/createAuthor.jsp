@@ -1,5 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--
+<%@ page contentType="text/html;charset=UTF-8" language="java" %><%--
   Created by IntelliJ IDEA.
   User: Hakob
   Date: 27.04.2023

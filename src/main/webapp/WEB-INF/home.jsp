@@ -21,6 +21,5 @@ Welcome <%=user.getName()%> <%=user.getSurname()%><br>
 <%};%>
 <a href="/createBook">Create Book</a>|
 <a href="/logout">logout</a> <br>
-
 </body>
 </html>

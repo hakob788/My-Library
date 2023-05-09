@@ -16,6 +16,7 @@
 </head>
 <% List<Author> authors = (List<Author>) request.getAttribute("allAuthors");%>
 <% User user = (User) request.getSession().getAttribute("user");%>
+
 <style>
     table, th, td {
         border: 1px solid;

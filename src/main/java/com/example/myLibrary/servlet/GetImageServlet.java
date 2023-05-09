@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 @WebServlet("/getImage")
-
 public class GetImageServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

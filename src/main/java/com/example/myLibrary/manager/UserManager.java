@@ -80,5 +80,6 @@ public class UserManager {
                 .userType(UserType.valueOf(resultSet.getString("user_type")))
                 .build();
     }
+
 }
 

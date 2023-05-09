@@ -69,5 +69,4 @@ public class UpdateBookServlet extends HttpServlet {
         BOOK_MANAGER.update(newBook);
         resp.sendRedirect("/books");
     }
-
 }

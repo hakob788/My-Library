@@ -20,6 +20,7 @@ public class UpdateAuthorServlet extends HttpServlet {
         Author author = AuthorManager.getById(id);
         req.setAttribute("author", author);
         req.getRequestDispatcher("WEB-INF/authorUpdate.jsp").forward(req, resp);
+
     }
 
     @Override
