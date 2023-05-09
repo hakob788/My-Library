@@ -24,8 +24,8 @@ public class RegisterServlet extends HttpServlet {
         String password = req.getParameter("password");
         UserType userType = UserType.valueOf(req.getParameter("userType"));
         String msg = "";
-        if (name == null || name.trim().equals("")){
-            msg+= "name is required<br>";
+        if (name == null || name.trim().equals("")) {
+            msg += "name is required<br>";
         }
         if (surname == null || surname.trim().equals("")) {
             msg += "surname is required<br>";
@@ -37,10 +37,10 @@ public class RegisterServlet extends HttpServlet {
         }
         if (password == null || password.trim().equals("")) {
             msg += "password is required<br>";
-        } else if (password.length() < 6 ) {
+        } else if (password.length() < 6) {
             msg += "password length must be >= 6<br>";
         }
-        if(msg.equals("")){
+        if (msg.equals("")) {
             User user = USER_MANAGER.getEmail(email);
             if (user == null) {
                 USER_MANAGER.save(User.builder()
@@ -52,9 +52,9 @@ public class RegisterServlet extends HttpServlet {
                         .build());
             }
             resp.sendRedirect("/");
-        }else {
-            req.setAttribute("msg",msg);
-            req.getRequestDispatcher("/register.jsp").forward(req,resp);
+        } else {
+            req.setAttribute("msg", msg);
+            req.getRequestDispatcher("/register.jsp").forward(req, resp);
         }
     }
 }

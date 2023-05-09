@@ -13,12 +13,13 @@ import java.io.IOException;
 @WebServlet("/updateAuthor")
 public class UpdateAuthorServlet extends HttpServlet {
     private static AuthorManager AuthorManager = new AuthorManager();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         Author author = AuthorManager.getById(id);
-        req.setAttribute("author",author);
-        req.getRequestDispatcher("WEB-INF/authorUpdate.jsp").forward(req,resp);
+        req.setAttribute("author", author);
+        req.getRequestDispatcher("WEB-INF/authorUpdate.jsp").forward(req, resp);
     }
 
     @Override
@@ -28,7 +29,7 @@ public class UpdateAuthorServlet extends HttpServlet {
         String surname = req.getParameter("surname");
         String email = req.getParameter("email");
         int age = Integer.parseInt(req.getParameter("age"));
-        Author author = new Author(id, name,surname,email,age);
+        Author author = new Author(id, name, surname, email, age);
         AuthorManager.update(author);
         resp.sendRedirect("/author");
     }

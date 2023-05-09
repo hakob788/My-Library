@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 @WebServlet("/deleteBook")
+
 public class DeleteBookServlet extends HttpServlet {
     private static final BookManager BOOK_MANAGER = new BookManager();
 

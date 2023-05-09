@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/login")
-
 public class LoginServlet extends HttpServlet {
     private static final UserManager USER_MANAGER = new UserManager();
 
@@ -28,8 +27,6 @@ public class LoginServlet extends HttpServlet {
         } else {
             session.setAttribute("user", byEmailAndPassword);
             resp.sendRedirect("/home");
-
         }
-
     }
 }

@@ -27,6 +27,7 @@ public class UserManager {
             e.printStackTrace();
         }
     }
+
     public User getById(int id) {
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery("Select * from user where id = " + id);

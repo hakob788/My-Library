@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.myLibrary.model.UserType" %>
 <%@ page import="com.example.myLibrary.model.User" %>
-<
 <%--
   Created by IntelliJ IDEA.
   User: Hakob
@@ -17,7 +16,6 @@
 </head>
 <% List<Author> authors = (List<Author>) request.getAttribute("allAuthors");%>
 <% User user = (User) request.getSession().getAttribute("user");%>
-
 <style>
     table, th, td {
         border: 1px solid;

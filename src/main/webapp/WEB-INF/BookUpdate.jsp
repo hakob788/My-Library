@@ -1,13 +1,14 @@
 <%@ page import="com.example.myLibrary.model.Book" %>
 <%@ page import="com.example.myLibrary.model.Author" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--
   Created by IntelliJ IDEA.
   User: Hakob
   Date: 27.04.2023
   Time: 16:57
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Book Edit</title>

@@ -88,4 +88,5 @@ public class AuthorManager {
             throw new RuntimeException(e);
         }
     }
+
 }

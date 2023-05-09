@@ -28,7 +28,6 @@ public class BooksServlet extends HttpServlet {
         List<Book> books = null;
         if (user.getUserType() == UserType.ADMIN) {
             books = BOOK_MANAGER.getAll();
-
         } else {
             books = BOOK_MANAGER.getUserBooks(user.getId());
         }

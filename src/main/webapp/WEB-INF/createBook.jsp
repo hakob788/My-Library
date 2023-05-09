@@ -12,10 +12,8 @@
     <title>New Book</title>
 </head>
 <% List<Author> authors = (List<Author>) request.getAttribute("authors");%>
-
 <body>
 <a href="/books"> Back </a>
-
 <h2>Add Book</h2>
 <form action="/createBook" method="post" enctype="multipart/form-data">
     Title: <input name="title" type="text"><br>
@@ -32,7 +30,5 @@
     <input type="file" name="profilePic"><br>
     <input type="submit" value="Add">
 </form>
-
-
 </body>
 </html>

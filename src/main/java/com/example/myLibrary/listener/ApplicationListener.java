@@ -15,6 +15,5 @@ public class ApplicationListener implements ServletContextListener {
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         System.out.println("Server stopped at " + new Date());
-
     }
 }

@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 
 @WebServlet("/home")
+
 public class HomeServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
