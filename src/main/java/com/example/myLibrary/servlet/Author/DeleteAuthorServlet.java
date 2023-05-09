@@ -19,5 +19,4 @@ public class DeleteAuthorServlet extends HttpServlet {
         AuthorManager.removeById(id);
         resp.sendRedirect("/author");
     }
-
 }

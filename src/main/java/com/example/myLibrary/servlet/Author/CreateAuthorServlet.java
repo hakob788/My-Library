@@ -32,4 +32,5 @@ public class CreateAuthorServlet extends HttpServlet {
         AuthorManager.save(author);
         resp.sendRedirect("/author");
     }
+
 }

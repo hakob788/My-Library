@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 public class EmailUtil {
     private EmailUtil() {
     }
+
     private static final String EMAIL_REGEX = "^(.+)@(\\S+)$";
 
     public static boolean patternMatches(String emailAddress) {

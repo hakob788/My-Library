@@ -30,6 +30,5 @@
     <input type="file" name="profilePic"><br>
     <input type="submit" value="Add">
 </form>
-
 </body>
 </html>

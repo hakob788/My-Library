@@ -63,4 +63,5 @@ public class CreateBookServlet extends HttpServlet {
         BOOK_MANAGER.save(book);
         resp.sendRedirect("/books");
     }
+
 }

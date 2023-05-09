@@ -1,5 +1,4 @@
-<%@ page import="com.example.myLibrary.model.Author" %>
-<%--
+<%@ page import="com.example.myLibrary.model.Author" %><%--
   Created by IntelliJ IDEA.
   User: Hakob
   Date: 27.04.2023

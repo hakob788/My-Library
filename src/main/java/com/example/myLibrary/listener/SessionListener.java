@@ -12,6 +12,7 @@ public class SessionListener implements HttpSessionListener {
         String id = se.getSession().getId();
         System.out.println("Session created at " + new Date()
                 + " sessionId = " + id);
+
     }
 
     @Override
